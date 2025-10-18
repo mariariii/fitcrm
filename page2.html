@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <h1 id="clientDetails">Client Details </h1>
+    <input type="text" id="search" name="search" placeholder="Search clients..." onkeyup="searchTable()">
+    <table id="clientTable">
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Fitness Goal</th>
+            <th>Start Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <td data-label="Full Name">John Doe</td>
+            <td data-label="Email">johndoe@example.com</td>
+            <td data-label="Phone Number">(123) 456-7890</td>
+            <td data-label="Fitness Goal">Weight Loss</td>
+            <td data-label="Start Date">2023-01-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Jane Smith</td>
+            <td data-label="Email">janesmith@example.com</td>
+            <td data-label="Phone Number">(987) 654-3210</td>
+            <td data-label="Fitness Goal">Muscle Gain</td>
+            <td data-label="Start Date">2023-02-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Bob Anderson</td>
+            <td data-label="Email">bob2ar3a@example.com</td>
+            <td data-label="Phone Number">(555) 123-4567</td>
+            <td data-label="Fitness Goal">General Fitness</td>
+            <td data-label="Start Date">2023-03-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Alice Williams</td>
+            <td data-label="Email">alicewilliams@example.com</td>
+            <td data-label="Phone Number">(444) 987-6543</td>
+            <td data-label="Fitness Goal">Weight Loss</td>
+            <td data-label="Start Date">2023-04-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Michael Brown</td>
+            <td data-label="Email">michaelbrown@example.com</td>
+            <td data-label="Phone Number">(333) 222-1111</td>
+            <td data-label="Fitness Goal">Muscle Gain</td>
+            <td data-label="Start Date">2023-05-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Emily Davis</td>
+            <td data-label="Email">emilydavis@example.com</td>
+            <td data-label="Phone Number">(222) 333-4444</td>
+            <td data-label="Fitness Goal">General Fitness</td>
+            <td data-label="Start Date">2023-06-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">David Wilson</td>
+            <td data-label="Email">davidwilson@example.com</td>
+            <td data-label="Phone Number">(111) 222-3333</td>
+            <td data-label="Fitness Goal">Weight Loss</td>
+            <td data-label="Start Date">2023-07-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Sarah Martinez</td>
+            <td data-label="Email">sarahmartinez@example.com</td>
+            <td data-label="Phone Number">(888) 999-0000</td>
+            <td data-label="Fitness Goal">Muscle Gain</td>
+            <td data-label="Start Date">2023-08-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">James Taylor</td>
+            <td data-label="Email">jamestaylor@example.com</td>
+            <td data-label="Phone Number">(777) 888-9999</td>
+            <td data-label="Fitness Goal">General Fitness</td>
+            <td data-label="Start Date">2023-09-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+        <tr>
+            <td data-label="Full Name">Olivia Anderson</td>
+            <td data-label="Email">oliviaanderson@example.com</td>
+            <td data-label="Phone Number">(666) 555-4444</td>
+            <td data-label="Fitness Goal">Weight Loss</td>
+            <td data-label="Start Date">2023-10-01</td>
+            <td data-label="Edit"><button>Edit</button></td>
+            <td data-label="Delete"><button>Delete</button></td>
+        </tr>
+    </table>
+    <script>
+        function searchTable() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('clientTable');
+            const rows = table.getElementsByTagName('tr');
+
+            // Loop through all table rows (skip header row)
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+
+                // Search through all cells in the row
+                for (let j = 0; j < cells.length; j++) {
+                    const cellText = cells[j].textContent || cells[j].innerText;
+                    if (cellText.toLowerCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                // Show or hide the row
+                rows[i].style.display = found ? '' : 'none';
+            }
+        }
+    </script>
+</html>
